@@ -18,6 +18,6 @@ jobs:
         echo 'Login into Docker'
         docker login -u haissamfawaz -p $DOCKER_HUB_KEY
         echo 'Building image'
-        ./chmod +x deploy.sh
+        chmod +x deploy.sh
         ./deploy.sh $(date +%s)
         echo 'Done'
