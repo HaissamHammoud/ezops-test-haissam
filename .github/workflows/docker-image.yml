@@ -1,0 +1,21 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: deploy
+      run: |
+        echo 'Login into Docker'
+        docker login -u haissamfawaz -p $DOCKER_HUB_KEY
+        echo 'Building image'
+        ./chmod +x deploy.sh
+        ./deploy.sh $(date +%s)
+        echo 'Done'
