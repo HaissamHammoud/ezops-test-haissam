@@ -12,7 +12,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: deploy
-    -env:
+    env:
       DOCKER_HUB_KEY: ${{ secrets.DOCKER_HUB_KEY}}
     run: |
       echo 'Login into Docker'
